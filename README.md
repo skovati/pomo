@@ -1,6 +1,8 @@
 # pomo
 Simple pomodoro CLI application for productivity and focus
 
+![](https://i.imgur.com/GKawwGE.png)
+
 ## usage 
 ```sh
 pomo [command] [args]
