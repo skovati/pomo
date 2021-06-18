@@ -38,8 +38,8 @@ func main() {
 func taskHandler(args []string) {
     switch args[1] {
     case "add":
-        addTask(args[1:])
+        // addTask(args[1:])
     case "remove":
-        removeTask(args[1:])
+        // removeTask(args[1:])
     }
 }
