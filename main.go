@@ -8,8 +8,9 @@ import (
 )
 
 const usage = `
-    durations entered in \"XhYmZs\" format
+    durations entered in "XhYmZs" format
     pomo [focus duration] [break duration]
+
 `
 
 func main() {

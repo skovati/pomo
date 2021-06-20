@@ -31,11 +31,16 @@ func countdown(message string, duration time.Duration) {
     // loop until the time
     for {
         select {
+        // if the ticker ticks, a second has passed, so we decrement duration left
         case <-ticker.C:
             duration -= time.Duration(sec)
+            // clear screen
             fmt.Print("\033[H\033[2J")
+
+            // print message and time
             fmt.Println(message)
             fmt.Print(format(duration))
+        // if the timer channel is nonempty 
         case <-timer.C:
             return
         }
