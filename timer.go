@@ -5,9 +5,10 @@ import (
     "time"
 )
 
-const sec = time.Second
-const maxPomoCounter = 4
-const header = "=== pomodoro timer, a simple way to stay focused ===\n\n"
+const sec time.Duration = time.Second
+const maxPomoCounter int = 4
+const header string = "=== pomodoro timer, a simple way to stay focused ===\n\n"
+const ansiClear string = "\033[H\033[2J"
 
 func PomoLoop(pomoDuration time.Duration, breakDuration time.Duration, ) {
     numTasks := 8
@@ -35,7 +36,7 @@ func countdown(message string, duration time.Duration) {
         case <-ticker.C:
             duration -= time.Duration(sec)
             // clear screen
-            fmt.Print("\033[H\033[2J")
+            fmt.Print(ansiClear)
 
             // print message and time
             fmt.Println(message)
