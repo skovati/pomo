@@ -12,6 +12,9 @@ fn main() {
         Commands::Init { work, rest } => {
             init_timer(*work, *rest);
         },
+        Commands::Rm => {
+            rm_timer();
+        }
         _ => {
             print_remaining_time(read_state());
         }
@@ -38,6 +41,7 @@ enum Commands {
         #[clap(short, long, default_value_t = 5)]
         rest: i64,
     },
+    Rm,
     /// Prints remaining time on timer to stdout
     Show
 }
@@ -103,4 +107,9 @@ fn print_remaining_time(state: State) {
     } else {
         println!("{}: {:0>2}:{:0>2}", "work", remaining.num_minutes(), remaining.num_seconds() % 60);
     }
+}
+
+fn rm_timer() {
+    let f = env::temp_dir().join("pomo.doro");
+    fs::remove_file(f).expect("error removing timer file");
 }
